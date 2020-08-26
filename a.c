@@ -4,11 +4,27 @@
 #include<unistd.h> 
 #include<sys/types.h> 
 #include<sys/wait.h> 
-#include<readline/readline.h> 
-#include<readline/history.h> 
 
-int main()
+void shell_input()
+{
+
+}
+void shell_loop()
+{
+    char *input;
+    int nums = 10;
+    do
+    {
+        printf("--> ");
+        input = shell_input();
+        free(input);
+        n--;
+    } while(n);
+}
+
+int main(int argc, char **argv)
 {
     printf("Welcome to my Shell!");
-    return 0;
+    shell_input();
+    return EXIT_SUCCESS;
 }
