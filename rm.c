@@ -1,5 +1,14 @@
-int recursive_remove(char *path) {
+#include<stdio.h> 
+#include<string.h> 
+#include<dirent.h>
+#include<sys/stat.h>
+#include<stdlib.h> 
+#include<unistd.h> 
+#include<sys/types.h> 
+#include<sys/wait.h> 
+#include<errno.h>
 
+int recursive_remove(char *path) {
     DIR *dir = opendir(path);
     size_t pathlen = strlen(path);
     int r1 = -1;
@@ -55,7 +64,7 @@ void shell_rm(int param, char** args)
 {
     if(param==1)
         printf("Missing operands");
-    else if(param == 2 & strcmp(args[1], "-r")==0)
+    else if((param == 2) && strcmp(args[1], "-r")==0)
         printf("Missing operands");
     else
     {
@@ -68,7 +77,7 @@ void shell_rm(int param, char** args)
                 printf("File removed successfully");
             }
         }
-        else if(param==3 & strcmp(args[1], "-r")==0)
+        else if((param==3) && strcmp(args[1], "-r")==0)
         {
             recursive_remove(args[2]);
         }

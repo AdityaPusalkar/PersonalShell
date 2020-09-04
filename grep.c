@@ -1,3 +1,13 @@
+#include<stdio.h> 
+#include<string.h> 
+#include<dirent.h>
+#include<sys/stat.h>
+#include<stdlib.h> 
+#include<unistd.h> 
+#include<sys/types.h> 
+#include<sys/wait.h> 
+#include<errno.h>
+
 void shell_grep(int param, char** args)
 {
     if(param!=3)
